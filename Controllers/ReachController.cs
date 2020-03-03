@@ -10,7 +10,7 @@ using DotNetAppSqlDb.Models;using System.Diagnostics;
 
 namespace DotNetAppSqlDb.Controllers
 {
-    public class TodosController : Controller
+    public class ReachController : Controller
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
@@ -18,8 +18,9 @@ namespace DotNetAppSqlDb.Controllers
         public ActionResult Index()
         {            
             Trace.WriteLine("GET /Config");
-            var config_stuff = db.Config.ToList();
-            return View(config_stuff);
+            //var config_stuff = db.Config.F();
+            Config config = db.Config.Find(1);
+            return View(config);
         }
 
         public ActionResult Messages()
@@ -50,7 +51,7 @@ namespace DotNetAppSqlDb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Pollrate,Postrate")] Config config)
+        public ActionResult Edit([Bind(Include = "id,Pollrate,Postrate,Realtime")] Config config)
         {
             Trace.WriteLine("POST /Config/Edit/" + config.ID);
             if (ModelState.IsValid)

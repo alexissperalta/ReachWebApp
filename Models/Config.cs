@@ -13,10 +13,13 @@ namespace DotNetAppSqlDb.Models
     public class Config
     {
         public int ID { get; set; }
-        [Display(Name = "Pollrate")]
+        [Display(Name = "Poll rate")]
         public int Pollrate { get; set; }
 
-        [Display(Name = "Postrate")]
+        [Display(Name = "Post rate")]
         public int Postrate { get; set; }
+
+        [Display(Name = "Real-time")]
+        public int Realtime { get; set; }
     }
 }

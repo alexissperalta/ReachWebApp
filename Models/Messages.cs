@@ -13,5 +13,7 @@ namespace DotNetAppSqlDb.Models
         [Key]
         [Display(Name = "Message")]
         public string Msg { get; set; }
+
+        public string Rec_time { get; set; }
     }
 }
